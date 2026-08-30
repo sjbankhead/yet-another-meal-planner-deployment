@@ -1,0 +1,13 @@
+{
+  "name": "yamp",
+  "owner": {
+    "name": "yamp operator"
+  },
+  "plugins": [
+    {
+      "name": "yamp",
+      "source": "./plugin/yamp",
+      "description": "Personal yamp — meal planning, pantry, recipes, and Kroger cart. Bundles the workflow skills and the yamp connector."
+    }
+  ]
+}
