@@ -22,9 +22,14 @@ permissions:
 jobs:
   deploy:
     uses: caseyWebb/yet-another-meal-planner/.github/workflows/data-deploy.yml@main
-    # inherit passes CLOUDFLARE_API_TOKEN (+ optional KROGER_CLIENT_ID/SECRET, which
-    # the deploy sets as Worker secrets when present).
-    secrets: inherit
+    # NOTE: secrets: inherit only works within the same org/enterprise. The reusable
+    # workflow lives in caseyWebb (a different account), so secrets MUST be passed
+    # explicitly. CLOUDFLARE_API_TOKEN is required; KROGER_* are optional (the deploy
+    # sets them as Worker secrets when present).
+    secrets:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      KROGER_CLIENT_ID: ${{ secrets.KROGER_CLIENT_ID }}
+      KROGER_CLIENT_SECRET: ${{ secrets.KROGER_CLIENT_SECRET }}
     with:
       config_path: wrangler.jsonc
       # Your connector host (e.g. yamp.<you>.workers.dev). The deploy bakes
