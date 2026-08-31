@@ -8,14 +8,13 @@
     "ACCESS_TEAM_DOMAIN": "<your-team>.cloudflareaccess.com",
     "ACCESS_AUD": "<access-app-aud>"
   },
-  // Id-less → auto-provisioned on first deploy and pinned back here.
+  // Ids pinned (auto-provisioned on an earlier deploy) so redeploys reuse them.
   "kv_namespaces": [
-    { "binding": "KROGER_KV" },
-    { "binding": "TENANT_KV" },
-    { "binding": "OAUTH_KV" }
+    { "binding": "KROGER_KV", "id": "9b59a293740046f9aea21feb22730c65" },
+    { "binding": "TENANT_KV", "id": "f0adbd83e30a47fc8624f346beadc4d1" },
+    { "binding": "OAUTH_KV", "id": "459e85e817aa460c9142337d3552b33b" }
   ],
-  // Id-less → provisioned on first deploy and pinned back here.
   "d1_databases": [
-    { "binding": "DB", "database_name": "yamp", "migrations_dir": "migrations/d1" }
+    { "binding": "DB", "database_name": "yamp", "database_id": "d0a8643c-9c62-4450-aea5-4517b50be379", "migrations_dir": "migrations/d1" }
   ]
 }
